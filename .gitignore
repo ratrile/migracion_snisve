@@ -1,0 +1,7 @@
+<<<<<<< HEAD
+#git ignore 
+*.mdb
+*.accdb
+=======
+base_datos/
+>>>>>>> f5982ba (se agrego el archivo gitignore)
