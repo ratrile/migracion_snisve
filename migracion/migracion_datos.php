@@ -43,7 +43,7 @@ class migracion_datos{
         ];
         foreach ($arrayDatos as $key => $tabla) {
         
-            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes, V, M from ".$tabla." ;";
+            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes, sem, V, M from ".$tabla." ;";
             $conectar  = new conexionAccess;
             $conexionMy = new conexionMysql;
             $dbMysql = $conexionMy-> conectarM();
@@ -94,7 +94,7 @@ class migracion_datos{
         ];
         foreach ($arrayDatos as $key => $tabla) {
         
-            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes, V, M from ".$tabla." ;";
+            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes,sem, V, M from ".$tabla." ;";
             $conectar  = new conexionAccess;
             $conexionMy = new conexionMysql;
             $dbMysql = $conexionMy-> conectarM();
@@ -107,7 +107,7 @@ class migracion_datos{
             $arr = $stmt->fetchAll();
             foreach ($arr as $key => $value) {
                 $insertar = "INSERT INTO t_formulario_302 
-                        (idgestion, corr_estabgest, codsubvar, mes,sem varon, mujer) 
+                        (idgestion, corr_estabgest, codsubvar, mes,sem, varon, mujer) 
                         VALUES ('$value[idgestion]','$value[corr_estabgest]','$value[codsubvar]','$value[mes]','$value[sem]',
                                 '$value[V]', '$value[M]') ";
             $final = mysqli_query($dbMysql, $insertar);
@@ -154,7 +154,7 @@ class migracion_datos{
         ];
         foreach ($arrayDatos as $key => $tabla) {
         
-            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes, V, M from ".$tabla." ;";
+            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes,sem, V, M from ".$tabla." ;";
             $conectar  = new conexionAccess;
             $conexionMy = new conexionMysql;
             $dbMysql = $conexionMy-> conectarM();
@@ -167,7 +167,7 @@ class migracion_datos{
             $arr = $stmt->fetchAll();
             foreach ($arr as $key => $value) {
                 $insertar = "INSERT INTO t_formulario_303 
-                        (idgestion, corr_estabgest, codsubvar, mes,sem varon, mujer) 
+                        (idgestion, corr_estabgest, codsubvar, mes,sem ,varon, mujer) 
                         VALUES ('$value[idgestion]','$value[corr_estabgest]','$value[codsubvar]','$value[mes]','$value[sem]',
                                 '$value[V]', '$value[M]') ";
             $final = mysqli_query($dbMysql, $insertar);

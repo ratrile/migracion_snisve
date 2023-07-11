@@ -1,8 +1,9 @@
 create table t_poblacions
 (
-    idgestion int,                      ## gestion
-    codmunicip int,                     ## codigo del municipio
-    genero VARCHAR(2),                  ## genero M o F
+    idgestion           int,                     ## gestion
+    codmunicip          int,                     ## codigo del municipio
+    nommunicipio        varchar(50),             ## nombre del municipo
+    genero              VARCHAR(2),              ## genero M o F
     `0`                 int,
     `1`                 int,
     `2`                 int,
