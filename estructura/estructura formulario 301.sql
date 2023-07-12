@@ -1,7 +1,7 @@
 create table t_formulario_301
 (
     idgestion int,              ##gestion
-    corr_estabgest int,         ##coorelativo getion establecimeto
+    corr_estabgest varchar(50), ##coorelativo getion establecimeto
     codsubvar int,              ##codigo gestion
     mes int,                    ##mes 
     sem int,                    ##semana
@@ -12,7 +12,7 @@ create table t_formulario_301
 create table t_formulario_302
 (
     idgestion int,              ##gestion
-    corr_estabgest int,         ##coorelativo getion establecimeto
+    corr_estabgest varchar(50), ##coorelativo getion establecimeto
     codsubvar int,              ##codigo gestion
     mes int,                    ##mes 
     sem int,                    ##semana
@@ -23,7 +23,7 @@ create table t_formulario_302
 create table t_formulario_303
 (
     idgestion int,              ##gestion
-    corr_estabgest int,         ##coorelativo getion establecimeto
+    corr_estabgest varchar(50), ##coorelativo getion establecimeto
     codsubvar int,              ##codigo gestion
     mes int,                    ##mes 
     sem int,                    ##semana
