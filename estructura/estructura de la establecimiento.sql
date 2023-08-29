@@ -1,7 +1,7 @@
 create table t_establecimientos
 (
     codestabl int,              ## codigo delestablecimiento
-    corr_estgest int,           ## coorelativo getion establecimeto
+    corr_estgest varchar(50),   ## coorelativo getion establecimeto
     idgestion int,              ## gestion
     coddepto int,               ## codigo de departamento
     nomdepto varchar(100),      ## nombre del departamento
