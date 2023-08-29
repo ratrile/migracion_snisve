@@ -4,7 +4,7 @@ require_once('conexion/conexionMysql.php');
 
 class migracion_variable{
 
-    function migrar_variable($dbpath){ 
+    function migrar_variable($dbpath, $año){ 
     $sql = "SELECT 
 	            tf2.codsubvar, 
 	            tf.idgestion,
@@ -23,7 +23,8 @@ class migracion_variable{
             inner join .t_formsubvar tf2 
             on tf.codgrup = tf2.codgrup 
             where  tf.idgestion  = tf2.idgestion
-            	and tf.codform  = tf2.codform ; ";
+            	and tf.codform  = tf2.codform 
+                and tf.idgestion = ".$año." ; ";
 
    $conectar  = new conexionAccess;
    $stmt = $conectar->conectar($dbpath)->prepare($sql);

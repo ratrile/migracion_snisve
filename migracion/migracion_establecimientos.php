@@ -5,7 +5,7 @@ require_once('conexion/conexionMysql.php');
 
  class migracion_establecimiento{
 
-    function migrar_establecimiento($dbpath){ 
+    function migrar_establecimiento($dbpath, $año){ 
         $sql = "SELECT
             t_EstabGest.codestabl,
             t_EstabGest.corr_estgest,
@@ -52,7 +52,7 @@ require_once('conexion/conexionMysql.php');
                AND (t_Provincia.coddepto = t_Depto.coddepto)) 
            ON t_clsestab.codclsest = t_EstabGest.codclsest) 
            ON t_instit.codinstit = t_EstabGest.codinstit
-           where (t_Depto.coddepto = '7') ; ";
+           where (t_Depto.coddepto = '7')  and t_Gestion.idgestion = ".$año." ; ";
     
     $conectar  = new conexionAccess;
     $stmt = $conectar->conectar($dbpath)->prepare($sql);

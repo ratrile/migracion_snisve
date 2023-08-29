@@ -2,10 +2,10 @@
 
 class conexionMysql{
     public $conexionM;
-
+    //cambiar la base de datos
     function conectarM(){
     $host = '127.0.0.1';
-    $dbname = 'snis_migra_1';
+    $dbname = 'snis_2019'; 
     $username = 'root';
     $password = '';
     try {

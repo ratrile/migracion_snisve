@@ -4,7 +4,7 @@ require_once('conexion/conexionAccess.php');
 require_once('conexion/conexionMysql.php');  
 class migracion_datos{
 
-    function formulario301($dbpath){ 
+    function formulario301($dbpath, $año){ 
     //formulario 301
         $arrayDatos = [
             '301G01_DAT',
@@ -41,9 +41,18 @@ class migracion_datos{
             '301G32_DAT',
             '301G33_DAT',
         ];
+
+        $conexionMy = new conexionMysql;
+        $dbMysql = $conexionMy-> conectarM();
+
+        $delete = "DELETE FROM t_formulario_301
+                        WHERE idgestion = ".$año." ; ";
+
+        $final = mysqli_query($dbMysql, $delete);
+        
         foreach ($arrayDatos as $key => $tabla) {
         
-            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes, V, M from ".$tabla." ;";
+            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes, sem, V, M from ".$tabla." ;";
             $conectar  = new conexionAccess;
             $conexionMy = new conexionMysql;
             $dbMysql = $conexionMy-> conectarM();
@@ -59,7 +68,7 @@ class migracion_datos{
                         (idgestion, corr_estabgest, codsubvar, mes, sem, varon, mujer) 
                         VALUES ('$value[idgestion]','$value[corr_estabgest]','$value[codsubvar]','$value[mes]','$value[sem]',
                                 '$value[V]', '$value[M]') ";
-            $final = mysqli_query($dbMysql, $insertar);
+                $final = mysqli_query($dbMysql, $insertar);
             if (!$final){
                 echo "<pre>";
                 print_r(mysqli_error($dbMysql));
@@ -69,7 +78,7 @@ class migracion_datos{
         }
     }
 
-    function formulario302($dbpath){ 
+    function formulario302($dbpath, $año){ 
         //formulario 301
         $arrayDatos = [
             '302G01_DAT',
@@ -92,9 +101,19 @@ class migracion_datos{
             '302G18_DAT',
             '302G19_DAT',
         ];
+
+        $conexionMy = new conexionMysql;
+        $dbMysql = $conexionMy-> conectarM();
+
+        $delete = "DELETE FROM t_formulario_302
+                        WHERE idgestion = ".$año." ; ";
+
+        $final = mysqli_query($dbMysql, $delete);
+
+
         foreach ($arrayDatos as $key => $tabla) {
         
-            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes, V, M from ".$tabla." ;";
+            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes,sem, V, M from ".$tabla." ;";
             $conectar  = new conexionAccess;
             $conexionMy = new conexionMysql;
             $dbMysql = $conexionMy-> conectarM();
@@ -107,7 +126,7 @@ class migracion_datos{
             $arr = $stmt->fetchAll();
             foreach ($arr as $key => $value) {
                 $insertar = "INSERT INTO t_formulario_302 
-                        (idgestion, corr_estabgest, codsubvar, mes,sem varon, mujer) 
+                        (idgestion, corr_estabgest, codsubvar, mes,sem, varon, mujer) 
                         VALUES ('$value[idgestion]','$value[corr_estabgest]','$value[codsubvar]','$value[mes]','$value[sem]',
                                 '$value[V]', '$value[M]') ";
             $final = mysqli_query($dbMysql, $insertar);
@@ -120,7 +139,7 @@ class migracion_datos{
         }
     }
 
-    function formulario303($dbpath){ 
+    function formulario303($dbpath, $año){ 
         //formulario 301
         $arrayDatos = [
             '303G01_DAT',
@@ -152,9 +171,18 @@ class migracion_datos{
             '303G27_DAT',
             '303G28_DAT',
         ];
+
+        $conexionMy = new conexionMysql;
+        $dbMysql = $conexionMy-> conectarM();
+
+        $delete = "DELETE FROM t_formulario_303
+                        WHERE idgestion = ".$año." ; ";
+
+        $final = mysqli_query($dbMysql, $delete);
+
         foreach ($arrayDatos as $key => $tabla) {
         
-            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes, V, M from ".$tabla." ;";
+            $sql = "SELECT idgestion, corr_estabgest, codsubvar, mes,sem, V, M from ".$tabla." ;";
             $conectar  = new conexionAccess;
             $conexionMy = new conexionMysql;
             $dbMysql = $conexionMy-> conectarM();
@@ -167,7 +195,7 @@ class migracion_datos{
             $arr = $stmt->fetchAll();
             foreach ($arr as $key => $value) {
                 $insertar = "INSERT INTO t_formulario_303 
-                        (idgestion, corr_estabgest, codsubvar, mes,sem varon, mujer) 
+                        (idgestion, corr_estabgest, codsubvar, mes,sem, varon, mujer) 
                         VALUES ('$value[idgestion]','$value[corr_estabgest]','$value[codsubvar]','$value[mes]','$value[sem]',
                                 '$value[V]', '$value[M]') ";
             $final = mysqli_query($dbMysql, $insertar);
